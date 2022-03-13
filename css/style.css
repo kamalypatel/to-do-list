@@ -151,6 +151,13 @@ li:hover {
   background-color: rgb(104, 222, 104);
 }
 
+@media (min-width: 1px) and (max-width: 670px) {
+  li {
+    width: 100%;
+    padding: 0 15vw 0 15vw;
+  }
+} 
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
