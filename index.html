@@ -12,7 +12,24 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		
+		<div class="wordblock" id="wordblock">
+			<h1>WORK TO-DOS</h1>
+			<h2 class="yellow">Enter text into the input field to add items to your list.</h2>
+			<h2 class="green">Click the item to mark it as complete.</h2>
+			<h2 class="grey">Click the "X" to remove the item from your list.</h2>
+		</div>
+		<div class="entry">
+			<form>
+				<label for="item"></label>
+				<input class="input" type="text" id="item" name="item" placeholder="New Item...">
+				<input class="submit" type="submit" value="Add">
+			</form>
+		</div>
+		<div class="listblock" id="listblock">
+			<ul class="list" id="list">
+				
+			</ul>
+		</div>
 
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>

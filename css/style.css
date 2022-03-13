@@ -11,7 +11,86 @@
 /* LAYOUT
 /*******************************************/
 
+html {
+  width: 100%;
+  background-color: #03A1BF;
+  padding: 10% 0 10% 0;
+  font-size: 10px;
+}
 
+body {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 5rem;
+}
+
+h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+}
+
+.yellow {
+  color: rgb(255, 162, 0);
+}
+
+.green {
+  color: rgb(11, 250, 11);
+}
+
+.grey {
+  color: rgb(41, 41, 60);
+}
+
+.entry {
+  width: 100%;
+  padding: 0 15vw 0 15vw;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%
+}
+
+.input {
+  width: 85%;
+  height: 3.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  border-radius: 10px;
+  background-color: white;
+  color: lightslategray;
+  border: none;
+  padding-left: 2%;
+}
+
+.submit {
+  width: 10%;
+  height: 3.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  border-radius: 10px;
+  background-color: rgb(27, 45, 63);
+  color: white;
+  border: none;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
