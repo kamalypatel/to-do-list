@@ -1,3 +1,11 @@
+function displayCategory(categoryName) {
+    const leftSection = document.querySelector('.leftSection')
+    const toDoListCategory = document.createElement('div')
+    toDoListCategory.classList.add('.catergorySelector')
+    toDoListCategory.innerText = categoryName
+    leftSection.appendChild(toDoListCategory)
+}
+
 const createCategory = ( (categoryName) => {
     let toDoList = []
     const toDoListItem = ( (toDoName, description, dueDate, priority) => {
@@ -8,8 +16,8 @@ const createCategory = ( (categoryName) => {
     
     let getToDoList = toDoList;
     
+    displayCategory(categoryName)
     return { categoryName, toDoListItem, getToDoList}
-
 })
 
 let general = createCategory('General')
