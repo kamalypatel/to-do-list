@@ -10,9 +10,23 @@ function displayCategory(category) {
 function displayToDos(category, arrayNumber) {
     const rightSection = document.querySelector('.rightSection')
     rightSection.innerHTML = ''
+    
     const toDoListItem = document.createElement('div')
-    toDoListItem.innerText = category.getToDoList()[arrayNumber].toDoName
-    rightSection.appendChild(toDoListItem)
+    
+    const toDoListItemName = document.createElement('p')
+    const toDoListItemDescription = document.createElement('p')
+    const toDoListItemDueDate = document.createElement('p')
+    const toDoListItemPriority = document.createElement('p')
+    
+    toDoListItemName.innerText = category.getToDoList()[arrayNumber].toDoName
+    toDoListItemDescription.innerText = category.getToDoList()[arrayNumber].description
+    toDoListItemDueDate.innerText = category.getToDoList()[arrayNumber].dueDate
+    toDoListItemPriority.innerText = category.getToDoList()[arrayNumber].priority
+    
+    toDoListItemName.innerText != 'undefined' ? rightSection.appendChild(toDoListItemName) : console.log('')
+    toDoListItemDescription.innerText != 'undefined' ? rightSection.appendChild(toDoListItemDescription) : console.log('')
+    toDoListItemDueDate.innerText != 'undefined' ? rightSection.appendChild(toDoListItemDueDate) : console.log('')
+    toDoListItemPriority.innerText != 'undefined' ? rightSection.appendChild(toDoListItemPriority) : console.log('')
 }
 
 const createCategory = ( (categoryName) => {
