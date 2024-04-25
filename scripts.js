@@ -1,9 +1,18 @@
-function displayCategory(categoryName) {
+function displayCategory(category) {
     const leftSection = document.querySelector('.leftSection')
     const toDoListCategory = document.createElement('div')
     toDoListCategory.classList.add('categorySelector')
-    toDoListCategory.innerText = categoryName
+    toDoListCategory.innerText = category.categoryName
+    toDoListCategory.addEventListener('click', category.displayToDoList)
     leftSection.appendChild(toDoListCategory)
+}
+
+function displayToDos(category, arrayNumber) {
+    const rightSection = document.querySelector('.rightSection')
+    rightSection.innerHTML = ''
+    const toDoListItem = document.createElement('div')
+    toDoListItem.innerText = category.getToDoList()[arrayNumber].toDoName
+    rightSection.appendChild(toDoListItem)
 }
 
 const createCategory = ( (categoryName) => {
@@ -19,21 +28,28 @@ const createCategory = ( (categoryName) => {
     let displayToDoList = () => {
         const middleSection = document.querySelector('.middleSection')
         middleSection.innerHTML = ''
+        const rightSection = document.querySelector('.rightSection')
+        rightSection.innerHTML = ''
         for (let i = 0; i < toDoList.length; i++) {
             const middleSection = document.querySelector('.middleSection')
             const toDoListItems = document.createElement('div')
+            toDoListItems.classList.add('itemSelector')
             toDoListItems.innerText = toDoList[i].toDoName
+            toDoListItems.addEventListener('click', () => displayToDos(category, i))
             middleSection.appendChild(toDoListItems)
         }
     }
-    
-    displayCategory(categoryName)
-    return { categoryName, toDoListItem, getToDoList, displayToDoList}
+
+    const category = {categoryName, toDoListItem, getToDoList, displayToDoList}
+    displayCategory(category)
+    return category
 })
 
 let general = createCategory('General')
 let first = general.toDoListItem('call doc', 'call 716-970-8530', 'tomorrow', 'priority')
 let second = general.toDoListItem('hello')
+let main = createCategory('Main')
+let seconds = main.toDoListItem('hello')
 
 console.log(general.categoryName)
 console.log(general.getToDoList())
