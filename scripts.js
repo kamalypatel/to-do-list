@@ -63,13 +63,13 @@ function addToDoForm() {
     const saveButtonToDo = document.getElementById('saveButtonToDo')
     saveButtonToDo.addEventListener('click', () => {
 
-        const toDoName = document.querySelector('input[name="toDoName"]').value
-        const toDoDescription = document.querySelector('input[name="description"]').value
-        const toDoDueDate = document.querySelector('input[name="dueDate"]').value
-        const toDoPriority = document.querySelector('input[name="priority"]').value
+        const toDoName = document.querySelector('input[name="toDoName"]')
+        const toDoDescription = document.querySelector('input[name="description"]')
+        const toDoDueDate = document.querySelector('input[name="dueDate"]')
+        const toDoPriority = document.querySelector('input[name="priority"]')
 
-        let catergory = currentCategory.value
-        catergory.toDoListItem(toDoName, toDoDescription, toDoDueDate, toDoPriority)
+        let catergory = currentCategory
+        catergory.toDoListItem(toDoName.value, toDoDescription.value, toDoDueDate.value, toDoPriority.value)
 
         toDoName.value = ''
         toDoDescription.value = ''
