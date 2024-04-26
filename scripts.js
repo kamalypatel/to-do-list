@@ -1,5 +1,8 @@
+let currentCategory = 'General'
+
 function displayCategory(category) {
     const leftSection = document.querySelector('.leftSection')
+
     const toDoListCategory = document.createElement('div')
     toDoListCategory.classList.add('categorySelector')
     toDoListCategory.innerText = category.categoryName
@@ -23,10 +26,10 @@ function displayToDos(category, arrayNumber) {
     toDoListItemDueDate.innerText = category.getToDoList()[arrayNumber].dueDate
     toDoListItemPriority.innerText = category.getToDoList()[arrayNumber].priority
     
-    toDoListItemName.innerText != 'undefined' ? rightSection.appendChild(toDoListItemName) : console.log('')
-    toDoListItemDescription.innerText != 'undefined' ? rightSection.appendChild(toDoListItemDescription) : console.log('')
-    toDoListItemDueDate.innerText != 'undefined' ? rightSection.appendChild(toDoListItemDueDate) : console.log('')
-    toDoListItemPriority.innerText != 'undefined' ? rightSection.appendChild(toDoListItemPriority) : console.log('')
+    toDoListItemName.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemName)) : null
+    toDoListItemDescription.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemDescription)) : null
+    toDoListItemDueDate.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemDueDate)) : null
+    toDoListItemPriority.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemPriority)) : null
 }
 
 const createCategory = ( (categoryName) => {
@@ -34,6 +37,8 @@ const createCategory = ( (categoryName) => {
     const toDoListItem = ( (toDoName, description, dueDate, priority) => {
         let item = {toDoName, description, dueDate, priority }
         toDoList.push(item)
+        displayToDoList()
+        
         return item
     })
     
@@ -42,6 +47,12 @@ const createCategory = ( (categoryName) => {
     let displayToDoList = () => {
         const middleSection = document.querySelector('.middleSection')
         middleSection.innerHTML = ''
+        const addToDoButton = document.createElement('button')
+        addToDoButton.setAttribute('type','button')
+        addToDoButton.classList.add('addButton')
+        addToDoButton.innerText = 'Add To Do'
+        middleSection.appendChild(addToDoButton)
+    
         const rightSection = document.querySelector('.rightSection')
         rightSection.innerHTML = ''
         for (let i = 0; i < toDoList.length; i++) {
