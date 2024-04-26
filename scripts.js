@@ -39,7 +39,7 @@ function addCategoryForm() {
 
     const modal = document.getElementById('categoryForm')
 
-    modal.showModal();
+    modal.showModal()
 
     const saveButtonCategory = document.getElementById('saveButtonCategory')
     saveButtonCategory.addEventListener('click', () => {
@@ -51,17 +51,17 @@ function addCategoryForm() {
         categoryName.value = ''
 
         modal.close()
-})
+    })
 }
 
 function addToDoForm() {
 
-    const modal = document.getElementById('toDoListForm')
+    const modal = document.getElementById('toDoListForms')
     
-    modal.showModal();
+    modal.showModal()
 
-    const saveButtonCategory = document.getElementById('saveButtonToDo')
-    saveButtonCategory.addEventListener('click', () => {
+    const saveButtonToDo = document.getElementById('saveButtonToDo')
+    saveButtonToDo.addEventListener('click', () => {
 
         const toDoName = document.querySelector('input[name="toDoName"]').value
         const toDoDescription = document.querySelector('input[name="description"]').value
@@ -76,8 +76,8 @@ function addToDoForm() {
         toDoDueDate.value = ''
         toDoPriority.value = ''
 
-        modals.close()
-})
+        modal.close()
+    })
 }
 
 
