@@ -44,15 +44,42 @@ function addCategoryForm() {
     const saveButtonCategory = document.getElementById('saveButtonCategory')
     saveButtonCategory.addEventListener('click', () => {
 
-        const categoryName = document.querySelector('input[name="categoryName"]')
+        const categoryName = document.querySelector('input[name="categoryName"]').value
 
-        createCategory(categoryName.value)
+        createCategory(categoryName)
 
         categoryName.value = ''
 
         modal.close()
 })
 }
+
+function addToDoForm() {
+
+    const modal = document.getElementById('toDoListForm')
+    
+    modal.showModal();
+
+    const saveButtonCategory = document.getElementById('saveButtonToDo')
+    saveButtonCategory.addEventListener('click', () => {
+
+        const toDoName = document.querySelector('input[name="toDoName"]').value
+        const toDoDescription = document.querySelector('input[name="description"]').value
+        const toDoDueDate = document.querySelector('input[name="dueDate"]').value
+        const toDoPriority = document.querySelector('input[name="priority"]').value
+
+        let catergory = currentCategory.value
+        catergory.toDoListItem(toDoName, toDoDescription, toDoDueDate, toDoPriority)
+
+        toDoName.value = ''
+        toDoDescription.value = ''
+        toDoDueDate.value = ''
+        toDoPriority.value = ''
+
+        modals.close()
+})
+}
+
 
 const createCategory = ( (categoryName) => {
     let toDoList = []
@@ -73,7 +100,6 @@ const createCategory = ( (categoryName) => {
         addToDoButton.setAttribute('type','button')
         addToDoButton.classList.add('addButton')
         addToDoButton.innerText = 'Add To Do'
-        // addToDoButton.addEventListener('click', addToDoForm)
         middleSection.appendChild(addToDoButton)
     
         const rightSection = document.querySelector('.rightSection')
@@ -86,6 +112,7 @@ const createCategory = ( (categoryName) => {
             toDoListItems.addEventListener('click', () => displayToDos(category, i))
             middleSection.appendChild(toDoListItems)
         }
+        addToDoButton.addEventListener('click', addToDoForm)
     }
 
     const category = {categoryName, toDoListItem, getToDoList, displayToDoList}
@@ -95,6 +122,8 @@ const createCategory = ( (categoryName) => {
 
 const addCategoryButton = document.getElementById('addCategoryButton')
 addCategoryButton.addEventListener('click', addCategoryForm)
+
+
 
 let general = createCategory('General')
 let first = general.toDoListItem('call doc', 'call 716-970-8530', 'tomorrow', 'priority')
