@@ -6,7 +6,10 @@ function displayCategory(category) {
     const toDoListCategory = document.createElement('div')
     toDoListCategory.classList.add('categorySelector')
     toDoListCategory.innerText = category.categoryName
-    toDoListCategory.addEventListener('click', category.displayToDoList)
+    toDoListCategory.addEventListener('click', () => {
+        category.displayToDoList()
+        currentCategory = category.categoryName
+    })
     leftSection.appendChild(toDoListCategory)
 }
 
@@ -32,6 +35,25 @@ function displayToDos(category, arrayNumber) {
     toDoListItemPriority.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemPriority)) : null
 }
 
+function addCategoryForm() {
+
+    const modal = document.getElementById('categoryForm')
+
+    modal.showModal();
+
+    const saveButtonCategory = document.getElementById('saveButtonCategory')
+    saveButtonCategory.addEventListener('click', () => {
+
+        const categoryName = document.querySelector('input[name="categoryName"]')
+
+        createCategory(categoryName.value)
+
+        categoryName.value = ''
+
+        modal.close()
+})
+}
+
 const createCategory = ( (categoryName) => {
     let toDoList = []
     const toDoListItem = ( (toDoName, description, dueDate, priority) => {
@@ -51,6 +73,7 @@ const createCategory = ( (categoryName) => {
         addToDoButton.setAttribute('type','button')
         addToDoButton.classList.add('addButton')
         addToDoButton.innerText = 'Add To Do'
+        // addToDoButton.addEventListener('click', addToDoForm)
         middleSection.appendChild(addToDoButton)
     
         const rightSection = document.querySelector('.rightSection')
@@ -69,6 +92,9 @@ const createCategory = ( (categoryName) => {
     displayCategory(category)
     return category
 })
+
+const addCategoryButton = document.getElementById('addCategoryButton')
+addCategoryButton.addEventListener('click', addCategoryForm)
 
 let general = createCategory('General')
 let first = general.toDoListItem('call doc', 'call 716-970-8530', 'tomorrow', 'priority')
