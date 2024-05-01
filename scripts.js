@@ -1,5 +1,3 @@
-let currentCategory = 'General'
-
 function displayCategory(category) {
     const leftSection = document.querySelector('.leftSection')
 
@@ -8,7 +6,7 @@ function displayCategory(category) {
     toDoListCategory.innerText = category.categoryName
     toDoListCategory.addEventListener('click', () => {
         category.displayToDoList()
-        currentCategory = category.categoryName
+        currentCategory = category
     })
     leftSection.appendChild(toDoListCategory)
 }
@@ -68,8 +66,8 @@ function addToDoForm() {
         const toDoDueDate = document.querySelector('input[name="dueDate"]')
         const toDoPriority = document.querySelector('input[name="priority"]')
 
-        let catergory = currentCategory
-        catergory.toDoListItem(toDoName.value, toDoDescription.value, toDoDueDate.value, toDoPriority.value)
+        
+        currentCategory.toDoListItem(toDoName.value, toDoDescription.value, toDoDueDate.value, toDoPriority.value)
 
         toDoName.value = ''
         toDoDescription.value = ''
@@ -123,12 +121,15 @@ const createCategory = ( (categoryName) => {
 const addCategoryButton = document.getElementById('addCategoryButton')
 addCategoryButton.addEventListener('click', addCategoryForm)
 
+let general = createCategory('General');
+let main = createCategory('Main');
 
+let currentCategory = general;
 
-let general = createCategory('General')
+currentCategory.displayToDoList();
 let first = general.toDoListItem('call doc', 'call 716-970-8530', 'tomorrow', 'priority')
 let second = general.toDoListItem('hello')
-let main = createCategory('Main')
+
 let seconds = main.toDoListItem('hello')
 
 console.log(general.categoryName)
