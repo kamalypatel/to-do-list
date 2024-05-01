@@ -22,10 +22,10 @@ function displayToDos(category, arrayNumber) {
     const toDoListItemDueDate = document.createElement('p')
     const toDoListItemPriority = document.createElement('p')
     
-    toDoListItemName.innerText = category.getToDoList()[arrayNumber].toDoName
-    toDoListItemDescription.innerText = category.getToDoList()[arrayNumber].description
-    toDoListItemDueDate.innerText = category.getToDoList()[arrayNumber].dueDate
-    toDoListItemPriority.innerText = category.getToDoList()[arrayNumber].priority
+    toDoListItemName.innerText = `Title: ${category.getToDoList()[arrayNumber].toDoName}`
+    toDoListItemDescription.innerText = `Description: ${category.getToDoList()[arrayNumber].description}`
+    toDoListItemDueDate.innerText = `Due Date: ${category.getToDoList()[arrayNumber].dueDate}`
+    toDoListItemPriority.innerText = `Priority: ${category.getToDoList()[arrayNumber].priority}`
     
     toDoListItemName.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemName)) : null
     toDoListItemDescription.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemDescription)) : null
