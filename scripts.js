@@ -68,6 +68,7 @@ function addToDoForm() {
 
         
         currentCategory.toDoListItem(toDoName.value, toDoDescription.value, toDoDueDate.value, toDoPriority.value)
+        displayToDos(currentCategory, currentCategory.getToDoList().length - 1)
 
         toDoName.value = ''
         toDoDescription.value = ''
@@ -75,6 +76,8 @@ function addToDoForm() {
         toDoPriority.value = ''
 
         modal.close()
+        
+        currentCategory.displayToDoList()
     })
 }
 
