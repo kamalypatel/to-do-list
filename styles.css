@@ -37,3 +37,40 @@ body {
     width: 10px;
     height: 10px;
 }
+
+dialog {
+    background-color: #252525;
+    border: 2px solid #5171F2;
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    color: white;
+    gap: 10px;
+    width: 500px;
+    padding: 5px;
+}
+
+form button {
+    background-color: #5171F2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input {
+    padding: 5px 10px 5px 10px;
+    width: 95%;
+}
