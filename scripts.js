@@ -50,32 +50,48 @@ function displayToDos(category, arrayNumber, mode = 'add') {
 
     if (mode == 'add') {
         rightSection.innerHTML = ''
+
+        const editButton = document.createElement('button')
+        editButton.setAttribute('type','button')
+        editButton.innerText = 'Edit'
+        editButton.addEventListener('click', () => {
+            editToDoItem(category, arrayNumber, 'edit')
+        })
+    
+        const toDoListItem = document.createElement('div')
+        
+        const toDoListItemName = document.createElement('p')
+        const toDoListItemDescription = document.createElement('p')
+        const toDoListItemDueDate = document.createElement('p')
+        const toDoListItemPriority = document.createElement('p')
+
+        toDoListItemName.setAttribute('id','toDoListItemName')
+        toDoListItemDescription.setAttribute('id','toDoListItemDescription')
+        toDoListItemDueDate.setAttribute('id','toDoListItemDueDate')
+        toDoListItemPriority.setAttribute('id','toDoListItemPriority')
+        
+        toDoListItemName.innerText = `Title: ${category.getToDoList()[arrayNumber].toDoName}`
+        toDoListItemDescription.innerText = `Description: ${category.getToDoList()[arrayNumber].description}`
+        toDoListItemDueDate.innerText = `Due Date: ${category.getToDoList()[arrayNumber].dueDate}`
+        toDoListItemPriority.innerText = `Priority: ${category.getToDoList()[arrayNumber].priority}`
+    
+        toDoListItemName.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemName)) : null
+        toDoListItemDescription.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemDescription)) : null
+        toDoListItemDueDate.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemDueDate)) : null
+        toDoListItemPriority.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemPriority)) : null
+        toDoListItemName.innerText != 'undefined' ? rightSection.appendChild(editButton) : null
+    } else {    
+        
+        const toDoListItemName = document.querySelector('#toDoListItemName')
+        const toDoListItemDescription = document.querySelector('#toDoListItemDescription')
+        const toDoListItemDueDate = document.querySelector('#toDoListItemDueDate')
+        const toDoListItemPriority = document.querySelector('#toDoListItemPriority')
+        
+        toDoListItemName.innerText = `Title: ${category.getToDoList()[arrayNumber].toDoName}`
+        toDoListItemDescription.innerText = `Description: ${category.getToDoList()[arrayNumber].description}`
+        toDoListItemDueDate.innerText = `Due Date: ${category.getToDoList()[arrayNumber].dueDate}`
+        toDoListItemPriority.innerText = `Priority: ${category.getToDoList()[arrayNumber].priority}`
     }
-    /* problem where we are adding new content when we are desiring an edit */
-    const editButton = document.createElement('button')
-    editButton.setAttribute('type','button')
-    editButton.innerText = 'Edit'
-    editButton.addEventListener('click', () => {
-        editToDoItem(category, arrayNumber, 'edit')
-    })
-
-    const toDoListItem = document.createElement('div')
-    
-    const toDoListItemName = document.createElement('p')
-    const toDoListItemDescription = document.createElement('p')
-    const toDoListItemDueDate = document.createElement('p')
-    const toDoListItemPriority = document.createElement('p')
-    
-    toDoListItemName.innerText = `Title: ${category.getToDoList()[arrayNumber].toDoName}`
-    toDoListItemDescription.innerText = `Description: ${category.getToDoList()[arrayNumber].description}`
-    toDoListItemDueDate.innerText = `Due Date: ${category.getToDoList()[arrayNumber].dueDate}`
-    toDoListItemPriority.innerText = `Priority: ${category.getToDoList()[arrayNumber].priority}`
-
-    toDoListItemName.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemName)) : null
-    toDoListItemDescription.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemDescription)) : null
-    toDoListItemDueDate.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemDueDate)) : null
-    toDoListItemPriority.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemPriority)) : null
-    toDoListItemName.innerText != 'undefined' ? rightSection.appendChild(editButton) : null
 }
 
 function addCategoryForm() {
