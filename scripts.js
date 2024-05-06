@@ -97,6 +97,7 @@ const createCategory = ( (categoryName) => {
     let displayToDoList = () => {
         const middleSection = document.querySelector('.middleSection')
         middleSection.innerHTML = ''
+
         const addToDoButton = document.createElement('button')
         addToDoButton.setAttribute('type','button')
         addToDoButton.classList.add('addButton')
@@ -105,6 +106,7 @@ const createCategory = ( (categoryName) => {
     
         const rightSection = document.querySelector('.rightSection')
         rightSection.innerHTML = ''
+
         for (let i = 0; i < toDoList.length; i++) {
             const middleSection = document.querySelector('.middleSection')
             const toDoListItemContainer = document.createElement('div')
@@ -112,7 +114,10 @@ const createCategory = ( (categoryName) => {
 
             const completeButton = document.createElement('div')
             completeButton.classList.add('completeButton')
-            completeButton.addEventListener
+            completeButton.addEventListener('click', () => {
+                toDoList.splice(i,1)
+                toDoListItemContainer.remove()
+            })
 
             const toDoListItems = document.createElement('p')
             toDoListItems.classList.add('itemSelector')
