@@ -66,14 +66,15 @@ function addToDoForm() {
         const toDoDueDate = document.querySelector('input[name="dueDate"]')
         const toDoPriority = document.querySelector('input[name="priority"]')
 
-        
+        if (toDoName.value != '') {
         currentCategory.toDoListItem(toDoName.value, toDoDescription.value, toDoDueDate.value, toDoPriority.value)
         displayToDos(currentCategory, currentCategory.getToDoList().length - 1)
-
+        }
         toDoName.value = ''
         toDoDescription.value = ''
         toDoDueDate.value = ''
         toDoPriority.value = ''
+        
 
         modal.close()
         
