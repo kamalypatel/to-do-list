@@ -11,7 +11,7 @@ function displayCategory(category) {
     leftSection.appendChild(toDoListCategory)
 }
 
-function editToDoItem(category, arrayNumber) {
+function editToDoItem(category, arrayNumber, mode = 'edit') {
     const toDoItem = category.getToDoList()[arrayNumber]
 
     const modal = document.getElementById('editModal')
@@ -38,22 +38,25 @@ function editToDoItem(category, arrayNumber) {
             priority: toDoPriorityInput.value
         }
 
-        displayToDos(category, arrayNumber)
+        displayToDos(category, arrayNumber, mode)
 
         modal.close()
     })
     
 }
 
-function displayToDos(category, arrayNumber) {
+function displayToDos(category, arrayNumber, mode = 'add') {
     const rightSection = document.querySelector('.rightSection')
-    /* rightSection.innerHTML = '' */
-    
+
+    if (mode == 'add') {
+        rightSection.innerHTML = ''
+    }
+    /* problem where we are adding new content when we are desiring an edit */
     const editButton = document.createElement('button')
     editButton.setAttribute('type','button')
     editButton.innerText = 'Edit'
     editButton.addEventListener('click', () => {
-        editToDoItem(category, arrayNumber)
+        editToDoItem(category, arrayNumber, 'edit')
     })
 
     const toDoListItem = document.createElement('div')
@@ -151,7 +154,7 @@ const createCategory = ( (categoryName) => {
         toDoListContainer.appendChild(addToDoButton)
     
         const rightSection = document.querySelector('.rightSection')
-        /* rightSection.innerHTML = '' */
+        rightSection.innerHTML = ''
 
         for (let i = 0; i < toDoList.length; i++) {
             const middleSection = document.querySelector('.middleSection')
