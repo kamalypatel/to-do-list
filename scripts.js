@@ -107,11 +107,21 @@ const createCategory = ( (categoryName) => {
         rightSection.innerHTML = ''
         for (let i = 0; i < toDoList.length; i++) {
             const middleSection = document.querySelector('.middleSection')
-            const toDoListItems = document.createElement('div')
+            const toDoListItemContainer = document.createElement('div')
+            toDoListItemContainer.classList.add('toDoListItemContainer')
+
+            const completeButton = document.createElement('div')
+            completeButton.classList.add('completeButton')
+            completeButton.addEventListener
+
+            const toDoListItems = document.createElement('p')
             toDoListItems.classList.add('itemSelector')
             toDoListItems.innerText = toDoList[i].toDoName
             toDoListItems.addEventListener('click', () => displayToDos(category, i))
-            middleSection.appendChild(toDoListItems)
+        
+            toDoListItemContainer.appendChild(completeButton)
+            toDoListItemContainer.appendChild(toDoListItems)
+            middleSection.appendChild(toDoListItemContainer)
         }
         addToDoButton.addEventListener('click', addToDoForm)
     }
