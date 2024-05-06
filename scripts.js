@@ -99,11 +99,14 @@ const createCategory = ( (categoryName) => {
         const middleSection = document.querySelector('.middleSection')
         middleSection.innerHTML = ''
 
+        const toDoListContainer = document.createElement('div')
+        toDoListContainer.classList.add('toDoListContainer')
+
         const addToDoButton = document.createElement('button')
         addToDoButton.setAttribute('type','button')
         addToDoButton.classList.add('addButton')
         addToDoButton.innerText = 'Add To Do'
-        middleSection.appendChild(addToDoButton)
+        toDoListContainer.appendChild(addToDoButton)
     
         const rightSection = document.querySelector('.rightSection')
         rightSection.innerHTML = ''
@@ -127,8 +130,10 @@ const createCategory = ( (categoryName) => {
         
             toDoListItemContainer.appendChild(completeButton)
             toDoListItemContainer.appendChild(toDoListItems)
-            middleSection.appendChild(toDoListItemContainer)
+            toDoListContainer.appendChild(toDoListItemContainer)
         }
+        middleSection.appendChild(toDoListContainer)
+
         addToDoButton.addEventListener('click', addToDoForm)
     }
 
