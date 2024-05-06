@@ -121,6 +121,9 @@ const createCategory = ( (categoryName) => {
             completeButton.addEventListener('click', () => {
                 toDoList.splice(i,1)
                 toDoListItemContainer.remove()
+
+                const rightSection = document.querySelector('.rightSection')
+                rightSection.innerHTML = ''
             })
 
             const toDoListItems = document.createElement('p')
