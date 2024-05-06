@@ -16,23 +16,38 @@ function editToDoItem(category, arrayNumber) {
 
     const modal = document.getElementById('editModal')
 
-    const toDoNameInput = document.querySelector('input[name="toDoNameEdit"]')
-    const toDoDescriptionInput = document.querySelector('input[name="descriptionEdit"]')
-    const toDoDueDateInput = document.querySelector('input[name="dueDateEdit"]')
-    const toDoPriorityInput = document.querySelector('input[name="priorityEdit"]')
+    const toDoNameInput = modal.querySelector('input[name="toDoNameEdit"]')
+    const toDoDescriptionInput = modal.querySelector('input[name="descriptionEdit"]')
+    const toDoDueDateInput = modal.querySelector('input[name="dueDateEdit"]')
+    const toDoPriorityInput = modal.querySelector('input[name="priorityEdit"]')
 
     toDoNameInput.value = toDoItem.toDoName
-    toDoDescriptionInput.value = toDoDescription.toDoName
-    toDoDueDateInput.value = toDoDueDate.toDoName
-    toDoPriorityInput.value = toDoPriority.toDoName
+    toDoDescriptionInput.value = toDoItem.description
+    toDoDueDateInput.value = toDoItem.dueDate
+    toDoPriorityInput.value = toDoItem.priority
 
+    modal.showModal()
+
+    const editSaveButton = document.getElementById('saveButtonEdit')
     
+    editSaveButton.addEventListener('click', () => {
+        category.getToDoList()[arrayNumber] = {
+            toDoName: toDoNameInput.value,
+            description: toDoDescriptionInput.value,
+            dueDate: toDoDueDateInput.value,
+            priority: toDoPriorityInput.value
+        }
+
+        displayToDos(category, arrayNumber)
+
+        modal.close()
+    })
     
 }
 
 function displayToDos(category, arrayNumber) {
     const rightSection = document.querySelector('.rightSection')
-    rightSection.innerHTML = ''
+    /* rightSection.innerHTML = '' */
     
     const editButton = document.createElement('button')
     editButton.setAttribute('type','button')
@@ -136,7 +151,7 @@ const createCategory = ( (categoryName) => {
         toDoListContainer.appendChild(addToDoButton)
     
         const rightSection = document.querySelector('.rightSection')
-        rightSection.innerHTML = ''
+        /* rightSection.innerHTML = '' */
 
         for (let i = 0; i < toDoList.length; i++) {
             const middleSection = document.querySelector('.middleSection')
