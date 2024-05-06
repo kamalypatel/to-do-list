@@ -25,6 +25,8 @@ function editToDoItem(category, arrayNumber) {
     toDoDescriptionInput.value = toDoDescription.toDoName
     toDoDueDateInput.value = toDoDueDate.toDoName
     toDoPriorityInput.value = toDoPriority.toDoName
+
+    
     
 }
 
