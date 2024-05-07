@@ -74,3 +74,11 @@ form input {
     padding: 5px 10px 5px 10px;
     width: 95%;
 }
+
+.toDoListItemContainer {
+    border-top: 1px grey solid;
+    padding: 10px;
+    color: white;
+    height: 30px;
+    width: 200px;
+}
