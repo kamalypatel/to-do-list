@@ -94,6 +94,11 @@ function displayToDos(category, arrayNumber, mode = 'add') {
         toDoListItemDescription.innerText = `Description: ${category.getToDoList()[arrayNumber].description}`
         toDoListItemDueDate.innerText = `Due Date: ${category.getToDoList()[arrayNumber].dueDate}`
         toDoListItemPriority.innerText = `Priority: ${category.getToDoList()[arrayNumber].priority}`
+
+        const middleSection = document.querySelector('.middleSection')
+        middleSection.innerHTML = ''
+
+        currentCategory.displayToDoList()
     }
 }
 
@@ -172,8 +177,8 @@ const createCategory = ( (categoryName) => {
         addToDoButton.innerText = 'Add To Do'
         toDoListContainer.appendChild(addToDoButton)
     
-        const rightSection = document.querySelector('.rightSection')
-        rightSection.innerHTML = ''
+        /* const rightSection = document.querySelector('.rightSection')
+        rightSection.innerHTML = '' */
 
         for (let i = 0; i < toDoList.length; i++) {
             const middleSection = document.querySelector('.middleSection')
