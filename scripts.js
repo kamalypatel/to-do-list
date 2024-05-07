@@ -29,8 +29,11 @@ function editToDoItem(category, arrayNumber, mode = 'edit') {
     modal.showModal()
 
     const editSaveButton = document.getElementById('saveButtonEdit')
-    
-    editSaveButton.addEventListener('click', () => {
+
+    const newEditSaveButton = editSaveButton.cloneNode(true)
+    editSaveButton.replaceWith(newEditSaveButton)
+
+    newEditSaveButton.addEventListener('click', () => {
         category.getToDoList()[arrayNumber] = {
             toDoName: toDoNameInput.value,
             description: toDoDescriptionInput.value,
@@ -81,7 +84,7 @@ function displayToDos(category, arrayNumber, mode = 'add') {
         toDoListItemPriority.innerText != 'undefined' ? rightSection.appendChild(toDoListItem.appendChild(toDoListItemPriority)) : null
         toDoListItemName.innerText != 'undefined' ? rightSection.appendChild(editButton) : null
     } else {    
-        
+
         const toDoListItemName = document.querySelector('#toDoListItemName')
         const toDoListItemDescription = document.querySelector('#toDoListItemDescription')
         const toDoListItemDueDate = document.querySelector('#toDoListItemDueDate')
