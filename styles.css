@@ -1,7 +1,6 @@
 body {
     font-size: 14px;
-    background-color: pink;
-    /* background-color: #1A1A1A; */
+    background-color: #1A1A1A;
     display: flex;
     flex-direction: row;
     color: white;
