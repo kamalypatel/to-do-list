@@ -19,3 +19,4 @@ The application does function and store the to-do-list items within your sesion.
 - Local storage so you don't lose session data
 - Time and Date display is not human friendly once chosen
 - Priority dropdown requires user to remove the entry to see all options when editing to-do-list items
+- A history for completed items
