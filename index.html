@@ -35,7 +35,12 @@
             <input type="text" name="dueDate">
 
             <label name="priority">Priority:</label>
-            <input type="text" name="priority">
+            <input list="priority" name="priority">
+                <datalist id="priority">
+                    <option value="High">
+                    <option value="Medium">
+                    <option value="Low">
+                </datalist>
 
 
             <button type="button" id="saveButtonToDo">Save To Do</button>
@@ -56,7 +61,12 @@
             <input type="text" name="dueDateEdit">
 
             <label name="priorityEdit">Priority:</label>
-            <input type="text" name="priorityEdit">
+            <input list="priorityEdit" name="priorityEdit">
+            <datalist id="priorityEdit">
+                <option value="High">
+                <option value="Medium">
+                <option value="Low">
+            </datalist>
 
 
             <button type="button" id="saveButtonEdit">Save Edits</button>
