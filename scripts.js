@@ -223,10 +223,10 @@ let main = createCategory('Main');
 let currentCategory = general;
 
 currentCategory.displayToDoList();
-let first = general.toDoListItem('call doc', 'call 716-970-8530', 'tomorrow', 'priority')
-let second = general.toDoListItem('hello')
+let first = general.toDoListItem('Call Doc', 'call 716-111-1111', 'Tomorrow', 'High')
+let second = general.toDoListItem('Email Sheryl', 'Telling her about the fundraiser', 'Today', 'Low')
 
-let seconds = main.toDoListItem('hello')
+let seconds = main.toDoListItem('Groceries', 'List on Fridge', 'Today', 'High')
 
 console.log(general.categoryName)
 console.log(general.getToDoList())
